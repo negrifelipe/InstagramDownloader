@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Instagram.Downloader": {
+      "commandName": "Project",
+      "commandLineArgs": "--login"
+    }
+  }
+}
