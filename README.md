@@ -7,5 +7,8 @@
 ## How to use
 You can find a tutorial video here [Click Here](https://youtu.be/lEVK3g5pPqY)
 
+## Having a problem?
+Open an issue [here](https://github.com/01-Feli/InstagramDownloader/issues/new) and you will get support
+
 ## Disclaimer !
 I am not responsible if your account gets blocked from instagram by using/abusing of this tool
