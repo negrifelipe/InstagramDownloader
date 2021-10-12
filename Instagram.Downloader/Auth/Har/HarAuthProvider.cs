@@ -14,8 +14,11 @@ namespace Feli.Instagram.Downloader.Auth.Har
 
             var @object = JObject.Parse(text);
 
-            foreach(var entry in @object["log"]["entries"] as JArray)
+            foreach(var entry in (@object["log"]["entries"] as JArray))
             {
+                if (!entry["request"]["url"].ToString().Contains("__a=1"))
+                    continue;
+
                 var headers = entry["request"]["headers"] as JArray;
 
                 return headers.FirstOrDefault(h => h["name"].ToString() == "cookie")["value"].ToString();

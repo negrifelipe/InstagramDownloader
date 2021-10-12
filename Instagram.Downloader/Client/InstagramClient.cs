@@ -38,11 +38,6 @@ namespace Feli.Instagram.Downloader.Client
             return await LoginAsync(credentials);
         }
 
-        public async Task<bool> LoginAsync(string username, string password)
-        {
-
-        }
-
         public async Task<bool> LoginAsync(string cookies)
         {
             httpClient.DefaultRequestHeaders.Add("Cookie", cookies);
@@ -132,7 +127,7 @@ namespace Feli.Instagram.Downloader.Client
 
             foreach (var reel in items)
             {
-                await DownloadReel(reel);
+                await DownloadReel(reel, folder + "/");
             }
         }
 
@@ -145,7 +140,7 @@ namespace Feli.Instagram.Downloader.Client
             return DownloadReel(reel);
         }
 
-        private async Task DownloadReel(JToken reel)
+        private async Task DownloadReel(JToken reel, string path = "")
         {
             var isVideo = (int)reel["media_type"] == 2;
 
@@ -168,7 +163,7 @@ namespace Feli.Instagram.Downloader.Client
 
             var buffer = await response.Content.ReadAsByteArrayAsync();
 
-            await File.WriteAllBytesAsync(reel["pk"].ToString() + extension, buffer);
+            await File.WriteAllBytesAsync(path + reel["pk"].ToString() + extension, buffer);
         }
     }
 }

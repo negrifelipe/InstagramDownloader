@@ -1,5 +1,4 @@
 ﻿using Feli.Instagram.Downloader.Auth.Har;
-using Feli.Instagram.Downloader.Commanding.Exceptions;
 using System;
 using System.IO;
 using System.Threading.Tasks;
@@ -19,13 +18,6 @@ namespace Feli.Instagram.Downloader.Commands
 
         public override async Task OnExecuteAsync(string[] args)
         {
-            //if(args.Length < 2)
-            //{
-            //    var username = args[0];
-            //    var password = args[1];
-
-
-            //}
             if(args.Length < 1)
             {
                 Writer.WriteLine("Trying to log in with saved credentials..", ConsoleColor.Cyan);
@@ -35,7 +27,6 @@ namespace Feli.Instagram.Downloader.Commands
                 if (!result)
                 {
                     Writer.Write("Credentials file was not found in cache", ConsoleColor.Red);
-                    return;
                 }
             }
             else
