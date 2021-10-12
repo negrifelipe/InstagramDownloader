@@ -6,3 +6,6 @@
 
 ## How to use
 You can find a tutorial video here [Click Here](https://youtu.be/lEVK3g5pPqY)
+
+## Disclaimer !
+I make no warnity if your account gets blocked from instagram by using/abusing of this tool
