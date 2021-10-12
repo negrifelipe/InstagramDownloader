@@ -3,3 +3,6 @@
 </p>
 <h1 align="center">Instagram Downloader</h1>
 <h3 align="center">A simple command based tool to download posts, stories and highlights from instagram.com</h3>
+
+## How to use
+You can find a tutorial video here ![Click Here](https://youtu.be/lEVK3g5pPqY)
