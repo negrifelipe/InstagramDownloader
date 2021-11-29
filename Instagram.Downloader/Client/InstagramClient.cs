@@ -118,16 +118,11 @@ namespace Feli.Instagram.Downloader.Client
         {
             var media = post.Data.SelectToken($"$.reels.highlight:{post.Id}");
 
-            var folder = media.SelectToken("$.title").ToString();
-
-            if (!Directory.Exists(folder))
-                Directory.CreateDirectory(folder);
-
             var items = media["items"] as JArray;
 
             foreach (var reel in items)
             {
-                await DownloadReel(reel, folder + "/");
+                await DownloadReel(reel);
             }
         }
 
@@ -158,12 +153,16 @@ namespace Feli.Instagram.Downloader.Client
             var extension = url.Substring(url.IndexOf("_n.") + 2, url.IndexOf('?'));
 
             extension = extension.Remove(extension.IndexOf('?'));
-
+            
+            var split = extension.Split('.');
+            
+            extension = split[^1];
+            
             var response = await httpClient.GetAsync(url);
-
+    
             var buffer = await response.Content.ReadAsByteArrayAsync();
 
-            await File.WriteAllBytesAsync(path + reel["pk"].ToString() + extension, buffer);
+            await File.WriteAllBytesAsync(path + reel["pk"].ToString() + "." + extension, buffer);
         }
     }
 }
